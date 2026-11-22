@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Источник",
+  "description": "state/sources.jsonl",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "title",
+    "retrieved_at",
+    "sha256",
+    "snapshot",
+    "status",
+    "op_id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^S-\\d{3,}$"
+    },
+    "kind": {
+      "enum": [
+        "url",
+        "file",
+        "image",
+        "dataset",
+        "interview",
+        "synthetic"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "file": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publisher": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "published_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "retrieved_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "snapshot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reliability": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        null
+      ]
+    },
+    "reliability_by": {
+      "enum": [
+        "jev",
+        "claude",
+        "human",
+        null
+      ]
+    },
+    "injection_flags": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "status": {
+      "enum": [
+        "active",
+        "retracted"
+      ]
+    },
+    "reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "op_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "at",
+          "field",
+          "reason",
+          "actor"
+        ],
+        "properties": {
+          "at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+          },
+          "field": {
+            "type": "string",
+            "minLength": 1
+          },
+          "old": {},
+          "new": {},
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "file_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "sha256 исходного файла (для дедупликации)"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,1 @@
+{"_rule": "Тестовые цены", "_checked_at": "2026-11-10", "models": {"claude-test": {"input": 1.0, "output": 2.0, "cache_write": 0.0, "cache_read": 0.0}}}

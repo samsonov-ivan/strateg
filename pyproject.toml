@@ -1,0 +1,24 @@
+[project]
+name = "strateg"
+version = "0.1.0"
+description = "Стратег — ИИ-агент руководителя цифрового продукта (детерминированный слой)"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+# projects/*/out — расчёты, написанные агентом в прогоне; храним как есть ради воспроизводимости
+extend-exclude = [".venv", "projects/*/out"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"strateg/report/build.py" = ["E501"]
+"examples/*" = ["E501"]

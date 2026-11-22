@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "markitdown": {
+      "command": ".venv/bin/markitdown-mcp",
+      "args": []
+    }
+  }
+}

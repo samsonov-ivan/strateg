@@ -1,0 +1,16 @@
+{
+  "_rule": "Регулярные выражения, без учёта регистра, многострочно. Совпадение — метка в injection_flags, не блокировка",
+  "patterns": [
+    {"id": "ignore_prev_en", "regex": "ignore\\s+(all\\s+|any\\s+)?(previous|prior|above|earlier)\\s+(instructions|prompts|rules|messages)"},
+    {"id": "ignore_prev_ru", "regex": "(игнорируй|забудь|не\\s+учитывай|отмени)\\s+(все\\s+)?(предыдущие|прошлые|прежние|вышеуказанные|свои)\\s+(инструкции|указания|правила|сообщения)"},
+    {"id": "system_prompt", "regex": "(system\\s+prompt|системн\\w*\\s+(промпт|инструкци))"},
+    {"id": "role_override_en", "regex": "(you\\s+are\\s+now|from\\s+now\\s+on\\s+you|act\\s+as\\s+(an?|the)\\s+\\w+)"},
+    {"id": "role_override_ru", "regex": "(теперь\\s+ты|ты\\s+теперь|с\\s+этого\\s+момента\\s+ты|веди\\s+себя\\s+как)"},
+    {"id": "run_command", "regex": "(run|execute|выполни|запусти)\\s+(the\\s+following\\s+|следующую\\s+)?(command|команду|скрипт|script)"},
+    {"id": "exfiltrate", "regex": "(send|post|upload|отправь|перешли|загрузи).{0,60}(api[_\\s-]?key|ключ|токен|token|password|парол|секрет|secret|\\.env)"},
+    {"id": "edit_rules", "regex": "(CLAUDE\\.md|AGENTS\\.md|\\.claude/|settings\\.json)"},
+    {"id": "address_ai_en", "regex": "(dear|hey|attention|note\\s+to)\\s+(ai|assistant|llm|language\\s+model|claude|chatgpt)"},
+    {"id": "address_ai_ru", "regex": "(уважаем\\w+|внимание|обращение\\s+к)\\s*,?\\s*(ии|ассистент\\w*|нейросет\\w*|языков\\w+\\s+модел\\w*)"},
+    {"id": "hidden_html_comment", "regex": "<!--[\\s\\S]{0,300}?(instruction|инструкци|assistant|ассистент|ignore|игнорир)"}
+  ]
+}

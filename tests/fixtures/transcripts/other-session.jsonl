@@ -1,0 +1,1 @@
+{"type": "assistant", "timestamp": "2026-11-10T11:40:00Z", "message": {"id": "msg_x", "model": "claude-test-model", "usage": {"input_tokens": 9000000, "output_tokens": 0, "cache_creation_input_tokens": 0, "cache_read_input_tokens": 0}}}

@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Утверждение",
+  "description": "state/claims.jsonl. Вывод агента никогда не становится fact без внешнего источника и цитаты",
+  "type": "object",
+  "required": [
+    "id",
+    "text",
+    "type",
+    "sources",
+    "confidence",
+    "depends_on",
+    "status",
+    "created_by",
+    "created_at",
+    "updated_at",
+    "op_id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^C-\\d{3,}$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "enum": [
+        "fact",
+        "hypothesis",
+        "forecast",
+        "opinion",
+        "unknown",
+        "synthetic"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^S-\\d{3,}$"
+      },
+      "uniqueItems": true
+    },
+    "quote": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quote_verified": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "quote_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "why_unknown": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^C-\\d{3,}$"
+      },
+      "uniqueItems": true
+    },
+    "stage": {
+      "enum": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        null
+      ]
+    },
+    "status": {
+      "enum": [
+        "active",
+        "needs_review",
+        "retracted",
+        "superseded"
+      ]
+    },
+    "superseded_by": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^C-\\d{3,}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_by": {
+      "enum": [
+        "agent",
+        "human"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "updated_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "op_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "at",
+          "field",
+          "reason",
+          "actor"
+        ],
+        "properties": {
+          "at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+          },
+          "field": {
+            "type": "string",
+            "minLength": 1
+          },
+          "old": {},
+          "new": {},
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

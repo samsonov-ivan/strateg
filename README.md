@@ -27,7 +27,7 @@ python3 -m venv .venv
 
 ## Демонстрация
 
-Полная конкурсная демонстрация длится 4 минуты 11 секунд. С 00:17 агент разбирает бриф, с 01:11 сравнивает четыре варианта, в 02:32 показывает готовую стратегию. В 03:06 отдельный чат открывает сохранённый проект и пересматривает запуск по новым учебным данным. [Смотреть на Google Диске](https://drive.google.com/file/d/1sOXCmNKlXNAXrWs_nZWhVpiK_gdSsOGR/view) · [Комплект для жюри](https://drive.google.com/drive/folders/1crm-QeXGq1s4KN7qCx0kWQWxKWYTVU7D) · [Фильм и исходники монтажа](examples/contest-film/)
+Полная конкурсная демонстрация длится 3 мин 58 с и снята в формате 16:9. В 00:16 агент получает бриф, в 01:06 сравнивает четыре варианта, в 02:24 показывает готовую стратегию. С 02:55 новый чат открывает сохранённый проект и меняет решение о пилоте после сверки потока семей. [Смотреть на Google Диске](https://drive.google.com/file/d/1sOXCmNKlXNAXrWs_nZWhVpiK_gdSsOGR/view) · [Комплект для жюри](https://drive.google.com/drive/folders/1crm-QeXGq1s4KN7qCx0kWQWxKWYTVU7D) · [Фильм и исходники монтажа](examples/contest-film/)
 
 [Посмотреть короткий вертикальный ролик](examples/motion/strateg.mp4) · [Разбор голоса и анимации](examples/motion/editing-guide.md) · [Исходники и настройки рендера](examples/motion/)
 
